@@ -15,7 +15,7 @@ An intelligent OCR (Optical Character Recognition) solution built with DeepSeek-
 
 ### Prerequisites
 
-- Python 3.8+
+- Python
 - Google Colab (recommended) or local environment with GPU support
 - Required libraries (see Installation)
 
@@ -23,15 +23,25 @@ An intelligent OCR (Optical Character Recognition) solution built with DeepSeek-
 
 ```bash
 pip install torch transformers pillow gradio
-```
+!pip install -q torch==2.6.0 torchvision torchaudio
+!pip install -q transformers==4.46.3
+!pip install -q tokenizers==0.20.3
+!pip install -q einops addict easydict
+!pip install -q pillow accelerate sentencepiece protobuf
 
-For Google Colab users, these packages are typically pre-installed.
+# Install flash-attention
+!pip install flash-attn==2.7.3 --no-build-isolation -q
+
+```
+After the all dependencies installed then restart once and don't run again this installation phase.
+
+After restart, run ALL cells below
 
 ### Usage
 
 #### Running in Google Colab
 
-1. Upload `mine.py` to your Colab notebook
+1. Upload `deepseek-ocr.py` to your Colab notebook
 2. Run the entire script
 3. Click the public Gradio URL generated
 4. Upload an image and click "Extract Text"
@@ -40,7 +50,7 @@ For Google Colab users, these packages are typically pre-installed.
 #### Running Locally
 
 ```bash
-python mine.py
+python deepseek-ocr.py
 ```
 
 Then open the Gradio interface URL shown in the terminal.
@@ -212,3 +222,4 @@ For questions, issues, or collaboration:
 **Built with ❤️ using DeepSeek-OCR and Gradio**
 
 *Transforming images into searchable text, one document at a time.*
+
